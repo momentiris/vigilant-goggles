@@ -14,15 +14,15 @@ let mix = require('laravel-mix');
  mix.js('assets/scripts/index.js', 'views/home/dist.js')
     .sass('assets/styles/app.scss', 'views/home/dist.css')
 
- var LiveReloadPlugin = require('webpack-livereload-plugin');
+ // var LiveReloadPlugin = require('webpack-livereload-plugin');
 
- mix.webpackConfig({
-      plugins: [
-          new LiveReloadPlugin({
-            delay: 500,
-          })
-      ]
-  });
+ // mix.webpackConfig({
+ //      plugins: [
+ //          new LiveReloadPlugin({
+ //            delay: 500,
+ //          })
+ //      ]
+ //  });
 
 
 
