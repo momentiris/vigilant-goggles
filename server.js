@@ -2,8 +2,9 @@ require ('dotenv').config();
 
 const express = require('express');
 const app = express();
+const path = require('path');
 
-const server = require('http').createServer(app);
+const server = require('http').createServer(app)
 const io = require('socket.io').listen(server);
 
 app.set('views', './views');
@@ -15,6 +16,12 @@ app.use((req, res, next) => {
   console.log('Hello, Im the middleware! :)');
   next();
 })
+
+
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
 
 let userCount = 0;
 
@@ -53,7 +60,7 @@ io.on('connection', socket => {
 
 // Routes after middleware.
 const router = require('./routes');
-app.use('*', router);
+app.use('/', router);
 
 const PORT = 1337;
 
