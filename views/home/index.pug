@@ -1,0 +1,42 @@
+doctype html
+html  
+    head
+        title title
+        script(src='http://localhost:35729/livereload.js')
+        style
+            include dist.css
+    body
+        section.wrapper
+            section.chatbox__utils
+                div.username__wrapper
+                    span.change__username change username
+                    input(
+                      class='username__input'
+                      type='text'
+                      name='username'
+                    )
+                div(
+                  style='display: flex'
+                )
+                    span.speech speech
+                    span.usercount hej
+                
+            section.chat__wrapper
+                section.chat__content
+                div.input__wrap
+                    textarea(
+                        class='message__input'
+                        type='text'
+                        name='message'
+                    )
+                    button(
+                      class='send__message'
+                      type='button'
+                      value='hej'
+                    ) Send
+            
+        script 
+            include dist.js
+
+          
+          
