@@ -1,0 +1,184 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+input, textarea {
+	font-size: 16px;
+	border: none;
+	padding: .5rem;
+	&:focus {
+		outline: none;
+	}
+}
+button {
+	border: none;
+}
+
+$blue: #7bbdd1;
+$font: 'Helvetica';
+
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	flex-flow: column nowrap;
+	font-family: $font;
+}
+
+.chatbox__utils {
+	width: 850px;
+	height: 50px;
+	border-top: 5px solid $blue;
+	border-right: 5px solid $blue;
+	border-left: 5px solid $blue;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+
+	.usercount, .speech {
+		font-size: 20px;
+		color: $blue;
+		font-family: $font;
+		font-weight: bold;
+		height: 100%;
+	}
+	.usercount {
+		width: 75px;
+		border-left: 5px solid $blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.speech {
+		width: 100px;
+		border-left: 5px solid $blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		&:after {
+			content: '';
+			background: $blue;
+			height: 100%;
+			width: 0%;
+			transition: .3s ease;
+			position: absolute;
+			z-index: -1;
+		}
+	}
+	@keyframes speechactive {
+		from {
+			opacity: 1;
+		}
+		50% { opacity: 0.5}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.speech-active {
+		color: white;
+		&:after {
+			content: '';
+			background: $blue;
+			width: 100%;
+			animation: speechactive 2s linear infinite;
+		}
+	}
+
+	.username__wrapper {
+		width: 150px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		border-right: 5px solid $blue;
+		position: relative;
+		background: white;
+		.change__username {
+			z-index: -1;
+			position: absolute;
+			font-size: 14px;
+			font-family: inherit;
+			font-weight: bold;
+			top: 0;
+			margin-left: .5rem;
+			transition: transform .2s ease;
+			transform: translateY(0px);
+			cursor: pointer;
+			&:hover {
+				color: #f0912e;
+			}
+		}
+		.change__username-active {
+			transform: translateY(-150%);
+		}
+		.username__input {
+			width: 100%;
+			height: 100%;
+			color: $blue;
+			font-size: 20px;
+			font-weight: bolder;
+			padding-left: 1rem;
+			&::placeholder {
+				color: $blue;
+			}
+
+		}
+	}
+}
+
+.chat__wrapper {
+	width: 850px;
+	height: 550px;
+	border: 5px solid $blue;
+	display: flex;
+	flex-flow: column nowrap;
+
+	.chat__content {
+		height: 100%;
+		width: 100%;
+		padding: 1rem;
+		overflow-y: scroll;
+	}
+	.input__wrap {
+		height: 55px;
+		display: flex;
+
+		.message__input {
+			width: 85%;
+			height: 100%;
+			border-top: 5px solid $blue;
+			border-right: 5px solid $blue;
+			resize: none;
+		}
+		.send__message {
+			height: 100%;
+			width: 15%;
+			background: none;
+			border-top: 5px solid $blue;
+			font-size: 20px;
+			font-family: $font;
+			font-weight: bolder;
+			color: $blue;
+			cursor: pointer;
+			&:focus {
+				outline: none;
+			}
+			&:active {
+				background: $blue;
+				color: white;
+			}
+		}
+
+	}
+}

@@ -51,11 +51,9 @@ io.on('connection', socket => {
 
 })
 
-
-
 // Routes after middleware.
 const router = require('./routes');
-app.use('/', router);
+app.use('*', router);
 
 const PORT = 1337;
 
