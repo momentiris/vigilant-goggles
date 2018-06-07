@@ -1,1 +1,1 @@
-web: npm run live
+web: npm run server-prod
