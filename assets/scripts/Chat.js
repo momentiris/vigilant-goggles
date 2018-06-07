@@ -4,7 +4,7 @@ import Speech from './Speech.js';
 class Chat {
   constructor() {
     // this.serverEndpoint = 'http://localhost:1337';
-    this.serverEndpoint = window.location.hostname;
+    this.serverEndpoint = 'https://fathomless-anchorage-14823.herokuapp.com/';
     this.connectClient();
 
     this.usernameField = document.querySelector('.username__input');
