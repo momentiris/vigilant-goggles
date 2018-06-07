@@ -18,10 +18,6 @@ app.use((req, res, next) => {
 })
 
 
-io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 10);
-});
 
 let userCount = 0;
 
