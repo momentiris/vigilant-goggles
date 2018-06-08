@@ -17,8 +17,6 @@ app.use((req, res, next) => {
   next();
 })
 
-
-
 let userCount = 0;
 
 io.on('connection', socket => {
